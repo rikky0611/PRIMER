@@ -583,7 +583,7 @@ def test(args):
             args, dataset, model.tokenizer, "test", args.num_workers, False
         )
     elif args.dataset_name == "arxiv":
-        with open(args.data_path + "test.txt", "r") as of:
+        with open(os.path.join(args.data_path, "test.txt"), "r") as of:
             all_lines = of.readlines()
         dataset = [json.loads(l) for l in all_lines]
         test_dataloader = get_dataloader_summ(
